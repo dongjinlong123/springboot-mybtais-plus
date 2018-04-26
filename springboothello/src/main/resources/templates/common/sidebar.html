@@ -1,0 +1,44 @@
+<div id="sidebar">
+	<ul class="nav nav-stacked">
+		<li>
+			<div class="panel caidan">
+				<div class="panel-heading box">
+					<a href="#open1" data-toggle="collapse" aria-expanded="false"
+						class="collapsed"><span class="sie">帐号管理</span></a>
+				</div>
+	
+				<div class="panel-collapse collapse" aria-expanded="false" id="open1">
+					<div class="panel-body caidan2">
+						<ul class="nav nav-stacked">
+							<li class="li-son"><a href="#count1"  ><span
+									class="sie">查看帐户</span></a></li>
+						</ul>
+					</div>
+				</div>
+				
+				<div class="panel-heading box">
+					<a href="#open2" data-toggle="collapse" aria-expanded="false"
+						class="collapsed"><span class="sie">商品管理</span></a>
+				</div>
+				
+				
+				<div class="panel-collapse collapse" aria-expanded="false" id="open2">
+					<div class="panel-body caidan2">
+						<ul class="nav nav-stacked">
+							<li class="li-son"><a href="#product1"  ><span
+									class="sie">查看商品</span></a></li>
+							<li class="li-son"><a href="#product2"  ><span
+									class="sie">修改商品</span></a></li>
+						</ul>
+					</div>
+				</div>
+				<#list userList as user>
+					<div class="panel-heading box">
+					<a href="#"  aria-expanded="false"
+						class="collapsed"><span class="sie">${user}</span></a>
+					</div>				
+				</#list>		
+			</div>
+		</li>
+	</ul>
+</div>

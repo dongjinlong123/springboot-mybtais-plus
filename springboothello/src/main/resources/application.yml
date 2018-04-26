@@ -1,0 +1,26 @@
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: com/mapper/sql/*.xml
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    password: 123456
+    url: jdbc:mysql://192.168.148.128:3306/my_db?characterEncoding=utf8&useSSL=true
+    username: root
+  freemarker:
+    allow-request-override: false
+    cache: false
+    charset: UTF-8
+    check-template-location: true
+    content-type: text/html; charset=utf-8
+    expose-request-attributes: false
+    expose-session-attributes: false
+    expose-spring-macro-helpers: false
+    suffix: .html
+    template-loader-path: classpath:/templates
+  http:
+    encoding:
+      charset: UTF-8
+      force: true
+server:
+  context-path: /admin
