@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 
 @ServerEndpoint("/testWebSocket")
 @Component
-public class WebSocketTest {
+public class WebSocketTest { 
 	private Session session;
 	private static Vector<WebSocketTest> list = new Vector<WebSocketTest>();
 	private static final Logger logger =LoggerFactory.getLogger(WebSocketTest.class);
