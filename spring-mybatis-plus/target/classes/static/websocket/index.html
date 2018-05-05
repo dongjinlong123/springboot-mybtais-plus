@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>web socket</title>
+</head>
+<body>
+	<div>
+		<input id="msg" type="text"><br/>
+		<button onclick="websocketTest();">websocketTest</button>
+	</div>
+</body>
+<script type="text/javascript">
+	function websocketTest() {
+		console.log("点击开始");
+		//1. 创建websocket对象
+		//第一个参数 url, 指定连接的 URL。
+		//第二个参数 protocol 是可选的，指定了可接受的子协议。
+		var url = "ws://localhost:8080/djl/testWebSocket";
+		var socket = new WebSocket(url);
+		//open 连接建立时触发
+		
+		socket.onopen = function() {
+			console.log("连接成功");
+			var msg = document.getElementById("msg");
+			if(msg.value.trim() !=""){
+				socket.send(msg.value);	
+			}
+			
+		}
+
+		//onmessage 接受数据
+		socket.onmessage = function(evt) {
+			var received_msg = evt.data;
+			console.log("接收的数据:" + received_msg);
+		}
+		// onclose 关闭连接
+		socket.onclose = function() {
+			// 关闭 websocket
+			console.log("连接已关闭...");
+		};
+		// onerror 产生异常
+		socket.onerror = function(evt) {
+			var error_msg = evt.data;
+			console.log("接收的数据:" + error_msg);
+
+		};
+	}
+</script>
+</html>

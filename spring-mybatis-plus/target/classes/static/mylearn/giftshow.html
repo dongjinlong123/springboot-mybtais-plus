@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/jquery-2.1.1.js"></script>
+    <link rel="stylesheet" href="js/mescroll.min.css" type="text/css">
+    <script type="text/javascript" src="js/mescroll.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link href="css/animate.css"  type="text/css" rel="stylesheet">
+    <style type="text/css">
+        body{
+            padding: 0px;
+            margin: 0px;
+            background: #d9edf7;
+        }
+        .headnav *{
+            background-color: orangered;
+        }
+        #myCarousel img{
+            width: 100%;
+        }
+        .content{
+            margin-top: 5%;
+            background: #fff;
+        }
+       .content .col-xs-6, .content p{
+            padding: 0px;
+           background: #fff;
+        }
+        .content .col-xs-6.left-img {
+            border-right: 1px solid rgba(0, 0, 0, .25);
+            border-top: 1px solid rgba(0, 0, 0, .25);
+        }
+        .content .col-xs-6.right-img {
+            border-top: 1px solid rgba(0, 0, 0, .25);
+        }
+        .vale{
+            font-size: 18px;
+        }
+        .li-style{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <!--JS控制左右自动切换：-->
+    <script type="text/javascript">
+        //滑动速度
+        $(function(){
+            $("#myCarousel").carousel({
+                interval:4000 //每隔1000毫秒切换一次
+            });
+        })
+    </script>
+
+</head>
+<body>
+    <div class="container">
+       <!-- 搜索框
+        <div class="row headnav">
+            <div class="input-group">
+                <span class=" input-group-addon glyphicon glyphicon-search"></span>
+                <input class="form-control" type="text">
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                </span>
+            </div>
+        </div>-->
+        <!--
+           carousel 旋转木马
+           slide 旋转切换
+        -->
+        <div class="row">
+        <div class="carousel slide" id="myCarousel">
+            <!-- 标识符部分 -->
+            <ul class="carousel-indicators">
+                <li class="active" data-target="#myCarousel" data-slide-to="0"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ul>
+            <!--  内容部分 内容+图片 -->
+            <div class="carousel-inner">
+                <div class="active item">
+                    <img src="image/lunbo1.jpg" class="img-responsive">
+                    <!-- 标题 -->
+                    <div class="carousel-caption">
+                        轮播图标题1
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="image/lunbo2.jpg" class="img-responsive">
+                    <div class="carousel-caption">
+                        轮播图标题2
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="image/lunbo3.jpg" class="img-responsive">
+                    <div class="carousel-caption">
+                        轮播图标题3
+                    </div>
+                </div>
+                <!--
+                    左右切换
+                    data-slide="prev" 后退
+                    data-slide="next" 前进
+                -->
+                <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <a class="carousel-control right" href="#myCarousel" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
+            </div>
+        </div>
+        </div>
+
+        <!--内容部分-->
+        <div class="content">
+            <div class="mescroll" id="mescroll">
+                <!-- 列表内容 -->
+                <div  id="newsList">
+                   <!-- <li class="list-group-item li-style">
+                        <div class="row">
+                            <div class="col-xs-6 left-img">
+                                <img src="image/1.jpg" class="img-responsive img-rounded">
+                                <p class="text-center">我的商品</p>
+                                <p class="text-center"><span><strong class="vale">￥&nbsp;123</strong></span></p>
+                            </div>
+                            <div class="col-xs-6 right-img">
+                                <img src="image/1.jpg" class="img-responsive img-rounded">
+                                <p class="text-center">我的商品</p>
+                                <p class="text-center"><span><strong class="vale">￥&nbsp;123</strong></span></p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item li-style">
+                        <div class="row">
+                            <div class="col-xs-6 left-img">
+                                <img src="image/1.jpg" class="img-responsive img-rounded">
+                                <p class="text-center">我的商品</p>
+                                <p class="text-center"><span><strong class="vale">￥&nbsp;123</strong></span></p>
+                            </div>
+                            <div class="col-xs-6 right-img">
+                                <img src="image/1.jpg" class="img-responsive img-rounded">
+                                <p class="text-center">我的商品</p>
+                                <p class="text-center"><span><strong class="vale">￥&nbsp;123</strong></span></p>
+                            </div>
+                        </div>
+                    </li>-->
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script type="text/javascript" charset="utf-8">
+
+        $(function () {
+            //第一个参数"mescroll"对应上面布局结构div的id
+            //如果您的下拉刷新是重置列表数据,那么down完全可以不用配置,具体用法参考第一个基础案例
+            //解析: down.callback默认调用mescroll.resetUpScroll(),而resetUpScroll会将page.num=1,再触发up.callback
+            var mescroll = new MeScroll("mescroll",{
+                down:{
+                    auto:false,  //是否在初始化完毕之后自动执行下拉回调callback; 默认true
+                    callback:downCallback //下拉刷新的回调
+                },
+                up: {
+                    auto: true, //是否在初始化时以上拉加载的方式自动加载第一页数据; 默认false
+                    isBounce: false, //此处禁止ios回弹,解析(务必认真阅读,特别是最后一点): http://www.mescroll.com/qa.html#q10
+                    callback: upCallback, //上拉回调,此处可简写; 相当于 callback: function (page) { upCallback(page); }
+                    page: {
+                        num: 0, //当前页 默认0,回调之前会加1; 即callback(page)会从1开始
+                        size: 6, //每页数据条数
+                        time: null //加载第一页数据服务器返回的时间; 防止用户翻页时,后台新增了数据从而导致下一页数据重复;
+                    },
+                    toTop:{ //配置回到顶部按钮
+                        src : "image/top.png", //默认滚动到1000px显示,可配置offset修改
+                        offset : 1000
+                    }
+                }
+            });
+            //下拉刷新的回调
+            function downCallback() {
+                setTimeout(function () {
+                    $.ajax({
+                        type:"post",
+                        url:"/djl/testPage",
+                        contextType:"application/json;charset=utf-8",
+                        data:{"_size":6,"_index":1},
+                        dataType:'text',
+                        success: function(curPageData) {
+                            console.log(curPageData);
+                            var data = JSON.parse(curPageData);
+                            console.log(data);
+                            //联网成功的回调,隐藏下拉刷新的状态;
+                            mescroll.endSuccess(); //无参
+                            //设置数据
+                            setData(data.data.records,true);//自行实现 TODO
+                        },
+                        error: function(data) {
+                            //联网失败的回调,隐藏下拉刷新的状态
+                            mescroll.endErr();
+                        }
+                    });
+                },1000);
+            }
+            function setData(list,upFlag){
+                if(upFlag == true){
+                    $("#newsList").text("");//清空内容
+                }
+                console.log(list);
+                var len = list.length;
+                var divstr="";
+                for (var i=0;i<len;i++){
+                         divstr += " <div class='col-xs-6  li-style'>"
+                                + "<img src='image/1.jpg' class='img-responsive img-rounded'>"
+                                + "<p class='text-center'>我的商品</p>"
+                                +" <p class='text-center'>"
+                                + "<span><strong class='vale'>￥&nbsp;123</strong></span>" +
+                                "</p>" +
+                                "</div>";
+                    }
+                    $("#newsList").append(divstr)
+                    //在所有的偶数加right-img 属性
+                    $("#newsList div :odd").addClass("right-img rotateInDownRight animated");
+                    //在所有的奇数加left-img 属性
+                    $("#newsList div :even").addClass("left-img rotateInDownLeft animated");
+
+                }
+            //上拉加载的回调 page = {num:1, size:10}; num:当前页 默认从1开始, size:每页数据条数,默认10
+            function upCallback(page) {
+                console.log("下拉多次自动更新"+page);
+                setTimeout(function () {
+                    $.ajax({
+                        type:"post",
+                        url:"/djl/testPage",
+                        contextType:"application/json;charset=utf-8",
+                        data:{"_size":page.size,"_index":page.num},
+                        dataType:'text',
+                        success: function(curPageData) {
+                            console.log(curPageData);
+                            var data = JSON.parse(curPageData);
+                            console.log(data);
+                            //联网成功的回调,隐藏下拉刷新和上拉加载的状态;
+                            //mescroll会根据传的参数,自动判断列表如果无任何数据,则提示空,显示empty配置的内容;
+                            //列表如果无下一页数据,则提示无更多数据,(注意noMoreSize的配置)
+
+                            //方法一(推荐): 后台接口有返回列表的总页数 totalPage
+                            //必传参数(当前页的数据个数, 总页数)
+                            //mescroll.endByPage(curPageData.length, totalPage);
+                            mescroll.endByPage(data.data.records.length, data.data.total);
+                            //方法二(推荐): 后台接口有返回列表的总数据量 totalSize
+                            //必传参数(当前页的数据个数, 总数据量)
+                            //mescroll.endBySize(curPageData.length, totalSize);
+
+                            //方法三(推荐): 您有其他方式知道是否有下一页 hasNext
+                            //必传参数(当前页的数据个数, 是否有下一页true/false)
+                            //mescroll.endSuccess(curPageData.length, hasNext);
+
+                            //方法四 (不推荐),会存在一个小问题:比如列表共有20条数据,每页加载10条,共2页.
+                            //如果只根据当前页的数据个数判断,则需翻到第三页才会知道无更多数据
+                            //如果传了hasNext,则翻到第二页即可显示无更多数据.
+                            //mescroll.endSuccess(curPageData.length);
+
+                            //设置列表数据
+                            setData(data.data.records,false);//自行实现 TODO
+                        },
+                        error: function(e) {
+                            //联网失败的回调,隐藏下拉刷新和上拉加载的状态
+                            mescroll.endErr();
+                        }
+                    });
+                },1000)
+            }
+        })
+
+
+    </script>
+</body>
+</html>

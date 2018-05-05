@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>测试产品页面</title>
+<script type="text/javascript" src="js/jquery-2.1.1.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("#demo1").click(function(){
+		console.log(12);
+		$.ajax({
+			type:"get",
+			url:"/djl/ProductPage",
+			contextType:"application/json;charset=utf-8",
+			data:{_size:"2",_index:"2"},
+			success:function(data){
+				console.log(data);
+				$("#hm").text(JSON.stringify(data));
+			}		
+		});
+	})
+})
+
+</script>
+</head>
+<body>
+	<button id="demo1"  type="button">分页查询
+	</button>
+	<p>测试图片读取</p>
+	<img alt="" src="/djl/downLoadImage/pic1.png/getImage">
+	<p id="hm"></p>
+	<form action="/djl/inserProduct">
+		名字： <input name="name" type="text"><br>
+		价格： <input name="price" type="text"><br>
+		数量： <input name="num" type="text"><br>
+		图片名： <input name="imgKey" type="text"><br>
+		<button type="submit">提交</button><br>
+	</form>
+</body>
+</html>
