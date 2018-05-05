@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class ImageFileController {
 	@Value("${image_filepath}")
-	private String filepath;
+	private String filepath; 
 
 	private static final Logger logger =LoggerFactory.getLogger(ImageFileController.class);
 	/**
