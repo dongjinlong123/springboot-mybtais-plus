@@ -10,7 +10,7 @@
     <script type="text/javascript" src="js/bootstrap.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no" >
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <link href="css/animate.css"  type="text/css" rel="stylesheet">
+    <link href="../../css/animate.css"  type="text/css" rel="stylesheet">
     <style type="text/css">
         body{
             padding: 0px;
@@ -44,6 +44,17 @@
         .li-style{
             margin: 0;
             padding: 0;
+        }
+        .brand{
+            background: #fff;
+            margin-top: 2%;
+            overflow-x: hidden;
+        }
+        #scroll_div {height:26px;overflow: hidden;white-space: nowrap;margin-left:10px;}
+        #scroll_begin,#scroll_end {display: inline; }
+
+        #scroll_end{
+            margin-left: 100%
         }
     </style>
     <!--JS控制左右自动切换：-->
@@ -118,7 +129,19 @@
             </div>
         </div>
         </div>
+       <!-- websocket 信息发布栏-->
+        <div>
+            <div class="text-center text-warning brand">
+                <div id="scroll_div" class="fl">
+                    <div id="scroll_begin"  >
+                        WebSocket 发布的信息，客户端同步更新
+                    </div>
+                    <div id="scroll_end" >
 
+                    </div>
+                </div>
+            </div>
+        </div>
         <!--内容部分-->
         <div class="content">
             <div class="mescroll" id="mescroll">
@@ -188,7 +211,7 @@
                 setTimeout(function () {
                     $.ajax({
                         type:"post",
-                        url:"/djl/testPage",
+                        url:"http://localhost:8080/djl/testPage",
                         contextType:"application/json;charset=utf-8",
                         data:{"_size":6,"_index":1},
                         dataType:'text',
@@ -237,7 +260,7 @@
                 setTimeout(function () {
                     $.ajax({
                         type:"post",
-                        url:"/djl/testPage",
+                        url:"http://localhost:8080/djl/testPage",
                         contextType:"application/json;charset=utf-8",
                         data:{"_size":page.size,"_index":page.num},
                         dataType:'text',
@@ -280,5 +303,7 @@
 
 
     </script>
+    <script type="text/javascript" src="js/gundong.js"></script>
+    <script type="text/javascript" src="js/websocket.js"></script>
 </body>
 </html>

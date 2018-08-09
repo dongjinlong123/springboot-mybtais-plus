@@ -1,0 +1,103 @@
+2018-06-28 14:51:59 INFO com.djl.Application:48 - Starting Application on MSI with PID 18604 (E:\djl\workspace\we_chat\target\classes started by 90411 in E:\djl\workspace\we_chat)
+2018-06-28 14:51:59 DEBUG com.djl.Application:51 - Running with Spring Boot v1.5.1.RELEASE, Spring v4.3.6.RELEASE
+2018-06-28 14:51:59 INFO com.djl.Application:637 - No active profile set, falling back to default profiles: default
+2018-06-28 14:52:00 INFO org.hibernate.validator.internal.util.Version:30 - HV000001: Hibernate Validator 5.3.4.Final
+2018-06-28 14:52:00 WARN org.mybatis.spring.mapper.ClassPathMapperScanner:239 - Skipping MapperFactoryBean with name 'demoMapper' and 'com.djl.dao.DemoMapper' mapperInterface. Bean already defined with the same name!
+2018-06-28 14:52:00 WARN org.mybatis.spring.mapper.ClassPathMapperScanner:239 - Skipping MapperFactoryBean with name 'menuMapper' and 'com.djl.dao.MenuMapper' mapperInterface. Bean already defined with the same name!
+2018-06-28 14:52:00 WARN org.mybatis.spring.mapper.ClassPathMapperScanner:239 - Skipping MapperFactoryBean with name 'wxInfoLogMapper' and 'com.djl.dao.WxInfoLogMapper' mapperInterface. Bean already defined with the same name!
+2018-06-28 14:52:00 WARN org.mybatis.spring.mapper.ClassPathMapperScanner:166 - No MyBatis mapper was found in '[com.djl.dao]' package. Please check your configuration.
+2018-06-28 14:52:01 INFO org.apache.catalina.core.StandardService:179 - Starting service Tomcat
+2018-06-28 14:52:01 INFO org.apache.catalina.core.StandardEngine:179 - Starting Servlet Engine: Apache Tomcat/8.5.11
+2018-06-28 14:52:01 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/djl]:179 - Initializing Spring embedded WebApplicationContext
+2018-06-28 14:52:03 INFO org.apache.coyote.http11.Http11NioProtocol:179 - Initializing ProtocolHandler ["http-nio-8080"]
+2018-06-28 14:52:03 INFO org.apache.coyote.http11.Http11NioProtocol:179 - Starting ProtocolHandler [http-nio-8080]
+2018-06-28 14:52:03 INFO org.apache.tomcat.util.net.NioSelectorPool:179 - Using a shared selector for servlet write/read
+2018-06-28 14:52:03 INFO com.djl.Application:57 - Started Application in 4.545 seconds (JVM running for 6.694)
+2018-06-28 14:52:04 INFO com.djl.common.WxMessageUtil:86 - 获取的链接https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wxb2575c2a7bc5f239&secret=9a9d5d020cb23fa6d2500425c9e7ca0d
+2018-06-28 14:52:05 INFO com.djl.common.HttpSendUtil:61 - 调用https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wxb2575c2a7bc5f239&secret=9a9d5d020cb23fa6d2500425c9e7ca0d返回的信息:{"access_token":"11_Q8YUB5noxO5Z7TEr8Xi0I292AUhXFw5Y46-Ynio0XG75MkkBoEJix90XijO8_6YGGoS16Ib06ihRuJ4Vq0ZFNB_Abt5ZnYiPQYmttyix4rO9E4JkewYWqtDpSL1TDzIbErrkW6yqeuisOE8fHNNcACABHH","expires_in":7200}
+2018-06-28 14:52:05 DEBUG com.djl.dao.MenuMapper.selectList:159 - ==>  Preparing: SELECT row_id AS `rowId`,menu_type AS menuType,menu_level AS menuLevel,menu_name AS menuName,menu_parent_id AS menuParentId FROM WX_MENU_TABLE WHERE menu_level=? AND menu_parent_id=? ORDER BY menu_order ASC 
+2018-06-28 14:52:05 DEBUG com.djl.dao.MenuMapper.selectList:159 - ==> Parameters: 1(String), 0(Long)
+2018-06-28 14:52:05 DEBUG com.djl.dao.MenuMapper.selectList:159 - <==      Total: 2
+2018-06-28 14:52:05 DEBUG com.djl.dao.MenuMapper.selectList:159 - ==>  Preparing: SELECT row_id AS `rowId`,menu_type AS menuType,menu_level AS menuLevel,menu_name AS menuName,menu_parent_id AS menuParentId FROM WX_MENU_TABLE WHERE menu_level=? AND menu_parent_id=? ORDER BY menu_order ASC 
+2018-06-28 14:52:05 DEBUG com.djl.dao.MenuMapper.selectList:159 - ==> Parameters: 2(String), 1(Long)
+2018-06-28 14:52:05 DEBUG com.djl.dao.MenuMapper.selectList:159 - <==      Total: 2
+2018-06-28 14:52:05 INFO com.djl.common.WxMessageUtil:154 - 菜单的json 数据:{"button":[{"name":"菜单1","sub_button":[{"appid":"","key":"","media_id":"","name":"子菜单1","pagepath":"","type":"view","url":"http://www.soso.com/"},{"appid":"","key":"","media_id":"","name":"子菜单2","pagepath":"","type":"view","url":"http://www.soso.com/"}]},{"appid":"","key":"","media_id":"","name":"菜单2","pagepath":"","type":"view","url":"http://www.soso.com/"}]}
+2018-06-28 14:52:05 INFO com.djl.common.HttpSendUtil:30 - 传递的参数为:{"button":[{"name":"菜单1","sub_button":[{"appid":"","key":"","media_id":"","name":"子菜单1","pagepath":"","type":"view","url":"http://www.soso.com/"},{"appid":"","key":"","media_id":"","name":"子菜单2","pagepath":"","type":"view","url":"http://www.soso.com/"}]},{"appid":"","key":"","media_id":"","name":"菜单2","pagepath":"","type":"view","url":"http://www.soso.com/"}]}
+2018-06-28 14:52:06 INFO com.djl.common.HttpSendUtil:44 - 调用https://api.weixin.qq.com/cgi-bin/menu/create?access_token=11_Q8YUB5noxO5Z7TEr8Xi0I292AUhXFw5Y46-Ynio0XG75MkkBoEJix90XijO8_6YGGoS16Ib06ihRuJ4Vq0ZFNB_Abt5ZnYiPQYmttyix4rO9E4JkewYWqtDpSL1TDzIbErrkW6yqeuisOE8fHNNcACABHH返回的信息:{"errcode":0,"errmsg":"ok"}
+2018-06-28 14:52:06 INFO com.djl.common.HttpSendUtil:61 - 调用https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=11_Q8YUB5noxO5Z7TEr8Xi0I292AUhXFw5Y46-Ynio0XG75MkkBoEJix90XijO8_6YGGoS16Ib06ihRuJ4Vq0ZFNB_Abt5ZnYiPQYmttyix4rO9E4JkewYWqtDpSL1TDzIbErrkW6yqeuisOE8fHNNcACABHH&type=jsapi返回的信息:{"errcode":0,"errmsg":"ok","ticket":"HoagFKDcsGMVCIY2vOjf9qyoMMxHKdqL4-pxzTyUHzwbtIy4X9A2bHUoFj_UczHPkTYHdOlAVh83q-jHsdQ2Zg","expires_in":7200}
+2018-06-28 14:52:56 INFO com.djl.Application:48 - Starting Application on MSI with PID 37548 (E:\djl\workspace\we_chat\target\classes started by 90411 in E:\djl\workspace\we_chat)
+2018-06-28 14:52:56 DEBUG com.djl.Application:51 - Running with Spring Boot v1.5.1.RELEASE, Spring v4.3.6.RELEASE
+2018-06-28 14:52:56 INFO com.djl.Application:637 - No active profile set, falling back to default profiles: default
+2018-06-28 14:52:56 INFO org.hibernate.validator.internal.util.Version:30 - HV000001: Hibernate Validator 5.3.4.Final
+2018-06-28 14:52:56 WARN org.mybatis.spring.mapper.ClassPathMapperScanner:239 - Skipping MapperFactoryBean with name 'demoMapper' and 'com.djl.dao.DemoMapper' mapperInterface. Bean already defined with the same name!
+2018-06-28 14:52:56 WARN org.mybatis.spring.mapper.ClassPathMapperScanner:239 - Skipping MapperFactoryBean with name 'menuMapper' and 'com.djl.dao.MenuMapper' mapperInterface. Bean already defined with the same name!
+2018-06-28 14:52:56 WARN org.mybatis.spring.mapper.ClassPathMapperScanner:239 - Skipping MapperFactoryBean with name 'wxInfoLogMapper' and 'com.djl.dao.WxInfoLogMapper' mapperInterface. Bean already defined with the same name!
+2018-06-28 14:52:56 WARN org.mybatis.spring.mapper.ClassPathMapperScanner:166 - No MyBatis mapper was found in '[com.djl.dao]' package. Please check your configuration.
+2018-06-28 14:52:57 INFO org.apache.catalina.core.StandardService:179 - Starting service Tomcat
+2018-06-28 14:52:57 INFO org.apache.catalina.core.StandardEngine:179 - Starting Servlet Engine: Apache Tomcat/8.5.11
+2018-06-28 14:52:57 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/djl]:179 - Initializing Spring embedded WebApplicationContext
+2018-06-28 14:52:59 INFO org.apache.coyote.http11.Http11NioProtocol:179 - Initializing ProtocolHandler ["http-nio-8080"]
+2018-06-28 14:52:59 INFO org.apache.coyote.http11.Http11NioProtocol:179 - Starting ProtocolHandler [http-nio-8080]
+2018-06-28 14:52:59 INFO org.apache.tomcat.util.net.NioSelectorPool:179 - Using a shared selector for servlet write/read
+2018-06-28 14:52:59 INFO com.djl.Application:57 - Started Application in 3.433 seconds (JVM running for 4.452)
+2018-06-28 14:53:00 INFO com.djl.common.WxMessageUtil:86 - 获取的链接https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wxb2575c2a7bc5f239&secret=9a9d5d020cb23fa6d2500425c9e7ca0d
+2018-06-28 14:53:01 INFO com.djl.common.HttpSendUtil:61 - 调用https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wxb2575c2a7bc5f239&secret=9a9d5d020cb23fa6d2500425c9e7ca0d返回的信息:{"access_token":"11_edx9URC4ZqrmeV9OjOnaJYWoPIbZWAC9osiSy0l7Ma4EvaJmoKEOo6MDiiczXQSzfnY1XeTp3dyRaVkCNyTplN8HHSaQoIrQcAL6utuA7xqZw6rCF_UkHe53PGkS59pWASji_rCdrT_UstcsXSIaAHAQLB","expires_in":7200}
+2018-06-28 14:53:01 DEBUG com.djl.dao.MenuMapper.selectList:159 - ==>  Preparing: SELECT row_id AS `rowId`,menu_type AS menuType,menu_level AS menuLevel,menu_name AS menuName,menu_parent_id AS menuParentId FROM WX_MENU_TABLE WHERE menu_level=? AND menu_parent_id=? ORDER BY menu_order ASC 
+2018-06-28 14:53:01 DEBUG com.djl.dao.MenuMapper.selectList:159 - ==> Parameters: 1(String), 0(Long)
+2018-06-28 14:53:01 DEBUG com.djl.dao.MenuMapper.selectList:159 - <==      Total: 2
+2018-06-28 14:53:01 DEBUG com.djl.dao.MenuMapper.selectList:159 - ==>  Preparing: SELECT row_id AS `rowId`,menu_type AS menuType,menu_level AS menuLevel,menu_name AS menuName,menu_parent_id AS menuParentId FROM WX_MENU_TABLE WHERE menu_level=? AND menu_parent_id=? ORDER BY menu_order ASC 
+2018-06-28 14:53:01 DEBUG com.djl.dao.MenuMapper.selectList:159 - ==> Parameters: 2(String), 1(Long)
+2018-06-28 14:53:01 DEBUG com.djl.dao.MenuMapper.selectList:159 - <==      Total: 2
+2018-06-28 14:53:01 INFO com.djl.common.WxMessageUtil:154 - 菜单的json 数据:{"button":[{"name":"菜单1","sub_button":[{"appid":"","key":"","media_id":"","name":"子菜单1","pagepath":"","type":"view","url":"http://www.soso.com/"},{"appid":"","key":"","media_id":"","name":"子菜单2","pagepath":"","type":"view","url":"http://www.soso.com/"}]},{"appid":"","key":"","media_id":"","name":"菜单2","pagepath":"","type":"view","url":"http://www.soso.com/"}]}
+2018-06-28 14:53:01 INFO com.djl.common.HttpSendUtil:30 - 传递的参数为:{"button":[{"name":"菜单1","sub_button":[{"appid":"","key":"","media_id":"","name":"子菜单1","pagepath":"","type":"view","url":"http://www.soso.com/"},{"appid":"","key":"","media_id":"","name":"子菜单2","pagepath":"","type":"view","url":"http://www.soso.com/"}]},{"appid":"","key":"","media_id":"","name":"菜单2","pagepath":"","type":"view","url":"http://www.soso.com/"}]}
+2018-06-28 14:53:02 INFO com.djl.common.HttpSendUtil:44 - 调用https://api.weixin.qq.com/cgi-bin/menu/create?access_token=11_edx9URC4ZqrmeV9OjOnaJYWoPIbZWAC9osiSy0l7Ma4EvaJmoKEOo6MDiiczXQSzfnY1XeTp3dyRaVkCNyTplN8HHSaQoIrQcAL6utuA7xqZw6rCF_UkHe53PGkS59pWASji_rCdrT_UstcsXSIaAHAQLB返回的信息:{"errcode":0,"errmsg":"ok"}
+2018-06-28 14:53:02 INFO com.djl.common.HttpSendUtil:61 - 调用https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=11_edx9URC4ZqrmeV9OjOnaJYWoPIbZWAC9osiSy0l7Ma4EvaJmoKEOo6MDiiczXQSzfnY1XeTp3dyRaVkCNyTplN8HHSaQoIrQcAL6utuA7xqZw6rCF_UkHe53PGkS59pWASji_rCdrT_UstcsXSIaAHAQLB&type=jsapi返回的信息:{"errcode":0,"errmsg":"ok","ticket":"HoagFKDcsGMVCIY2vOjf9qyoMMxHKdqL4-pxzTyUHzwbtIy4X9A2bHUoFj_UczHPkTYHdOlAVh83q-jHsdQ2Zg","expires_in":7200}
+2018-06-28 14:57:33 INFO com.djl.Application:48 - Starting Application on MSI with PID 24272 (E:\djl\workspace\we_chat\target\classes started by 90411 in E:\djl\workspace\we_chat)
+2018-06-28 14:57:33 DEBUG com.djl.Application:51 - Running with Spring Boot v1.5.1.RELEASE, Spring v4.3.6.RELEASE
+2018-06-28 14:57:33 INFO com.djl.Application:637 - No active profile set, falling back to default profiles: default
+2018-06-28 14:57:33 INFO org.hibernate.validator.internal.util.Version:30 - HV000001: Hibernate Validator 5.3.4.Final
+2018-06-28 14:57:33 WARN org.mybatis.spring.mapper.ClassPathMapperScanner:239 - Skipping MapperFactoryBean with name 'demoMapper' and 'com.djl.dao.DemoMapper' mapperInterface. Bean already defined with the same name!
+2018-06-28 14:57:33 WARN org.mybatis.spring.mapper.ClassPathMapperScanner:239 - Skipping MapperFactoryBean with name 'menuMapper' and 'com.djl.dao.MenuMapper' mapperInterface. Bean already defined with the same name!
+2018-06-28 14:57:33 WARN org.mybatis.spring.mapper.ClassPathMapperScanner:239 - Skipping MapperFactoryBean with name 'wxInfoLogMapper' and 'com.djl.dao.WxInfoLogMapper' mapperInterface. Bean already defined with the same name!
+2018-06-28 14:57:33 WARN org.mybatis.spring.mapper.ClassPathMapperScanner:166 - No MyBatis mapper was found in '[com.djl.dao]' package. Please check your configuration.
+2018-06-28 14:57:34 INFO org.apache.catalina.core.StandardService:179 - Starting service Tomcat
+2018-06-28 14:57:34 INFO org.apache.catalina.core.StandardEngine:179 - Starting Servlet Engine: Apache Tomcat/8.5.11
+2018-06-28 14:57:34 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/djl]:179 - Initializing Spring embedded WebApplicationContext
+2018-06-28 14:57:35 INFO org.apache.coyote.http11.Http11NioProtocol:179 - Initializing ProtocolHandler ["http-nio-8080"]
+2018-06-28 14:57:35 INFO org.apache.coyote.http11.Http11NioProtocol:179 - Starting ProtocolHandler [http-nio-8080]
+2018-06-28 14:57:35 INFO org.apache.tomcat.util.net.NioSelectorPool:179 - Using a shared selector for servlet write/read
+2018-06-28 14:57:35 INFO com.djl.Application:57 - Started Application in 2.657 seconds (JVM running for 3.61)
+2018-06-28 14:57:36 INFO com.djl.common.WxMessageUtil:86 - 获取的链接https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wxb2575c2a7bc5f239&secret=9a9d5d020cb23fa6d2500425c9e7ca0d
+2018-06-28 14:57:37 INFO com.djl.common.HttpSendUtil:61 - 调用https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wxb2575c2a7bc5f239&secret=9a9d5d020cb23fa6d2500425c9e7ca0d返回的信息:{"access_token":"11_oRfdTYW_j0FZU8XLY1KU4Inx-_ZYd9MP4iYrEBRiK4ZAUFGNLPoV62O3c4EfxOtsgbZKmr8aWemZRHId6VKYvtm5pc70L7HuDGtKberMmSLunNys_b7Qw5eaK60VAQcAJAEJZ","expires_in":7200}
+2018-06-28 14:57:37 DEBUG com.djl.dao.MenuMapper.selectList:159 - ==>  Preparing: SELECT row_id AS `rowId`,menu_type AS menuType,menu_level AS menuLevel,menu_name AS menuName,menu_parent_id AS menuParentId FROM WX_MENU_TABLE WHERE menu_level=? AND menu_parent_id=? ORDER BY menu_order ASC 
+2018-06-28 14:57:37 DEBUG com.djl.dao.MenuMapper.selectList:159 - ==> Parameters: 1(String), 0(Long)
+2018-06-28 14:57:37 DEBUG com.djl.dao.MenuMapper.selectList:159 - <==      Total: 2
+2018-06-28 14:57:37 DEBUG com.djl.dao.MenuMapper.selectList:159 - ==>  Preparing: SELECT row_id AS `rowId`,menu_type AS menuType,menu_level AS menuLevel,menu_name AS menuName,menu_parent_id AS menuParentId FROM WX_MENU_TABLE WHERE menu_level=? AND menu_parent_id=? ORDER BY menu_order ASC 
+2018-06-28 14:57:37 DEBUG com.djl.dao.MenuMapper.selectList:159 - ==> Parameters: 2(String), 1(Long)
+2018-06-28 14:57:37 DEBUG com.djl.dao.MenuMapper.selectList:159 - <==      Total: 2
+2018-06-28 14:57:37 INFO com.djl.common.WxMessageUtil:154 - 菜单的json 数据:{"button":[{"name":"菜单1","sub_button":[{"appid":"","key":"","media_id":"","name":"子菜单1","pagepath":"","type":"view","url":"http://www.soso.com/"},{"appid":"","key":"","media_id":"","name":"子菜单2","pagepath":"","type":"view","url":"http://www.soso.com/"}]},{"appid":"","key":"","media_id":"","name":"菜单2","pagepath":"","type":"view","url":"http://www.soso.com/"}]}
+2018-06-28 14:57:37 INFO com.djl.common.HttpSendUtil:30 - 传递的参数为:{"button":[{"name":"菜单1","sub_button":[{"appid":"","key":"","media_id":"","name":"子菜单1","pagepath":"","type":"view","url":"http://www.soso.com/"},{"appid":"","key":"","media_id":"","name":"子菜单2","pagepath":"","type":"view","url":"http://www.soso.com/"}]},{"appid":"","key":"","media_id":"","name":"菜单2","pagepath":"","type":"view","url":"http://www.soso.com/"}]}
+2018-06-28 14:57:38 INFO com.djl.common.HttpSendUtil:44 - 调用https://api.weixin.qq.com/cgi-bin/menu/create?access_token=11_oRfdTYW_j0FZU8XLY1KU4Inx-_ZYd9MP4iYrEBRiK4ZAUFGNLPoV62O3c4EfxOtsgbZKmr8aWemZRHId6VKYvtm5pc70L7HuDGtKberMmSLunNys_b7Qw5eaK60VAQcAJAEJZ返回的信息:{"errcode":0,"errmsg":"ok"}
+2018-06-28 14:57:38 INFO com.djl.common.HttpSendUtil:61 - 调用https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=11_oRfdTYW_j0FZU8XLY1KU4Inx-_ZYd9MP4iYrEBRiK4ZAUFGNLPoV62O3c4EfxOtsgbZKmr8aWemZRHId6VKYvtm5pc70L7HuDGtKberMmSLunNys_b7Qw5eaK60VAQcAJAEJZ&type=jsapi返回的信息:{"errcode":0,"errmsg":"ok","ticket":"HoagFKDcsGMVCIY2vOjf9qyoMMxHKdqL4-pxzTyUHzwbtIy4X9A2bHUoFj_UczHPkTYHdOlAVh83q-jHsdQ2Zg","expires_in":7200}
+2018-06-28 14:59:17 ERROR org.springframework.boot.SpringApplication:815 - Application startup failed
+java.lang.IllegalStateException: Logback configuration error detected: 
+ERROR in ch.qos.logback.core.joran.action.PropertyAction - Could not find resource [classpath:application.yml].
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.loadConfiguration(LogbackLoggingSystem.java:161)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.reinitialize(LogbackLoggingSystem.java:207)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initializeWithConventions(AbstractLoggingSystem.java:74)
+	at org.springframework.boot.logging.AbstractLoggingSystem.initialize(AbstractLoggingSystem.java:59)
+	at org.springframework.boot.logging.logback.LogbackLoggingSystem.initialize(LogbackLoggingSystem.java:114)
+	at org.springframework.boot.logging.LoggingApplicationListener.initializeSystem(LoggingApplicationListener.java:303)
+	at org.springframework.boot.logging.LoggingApplicationListener.initialize(LoggingApplicationListener.java:276)
+	at org.springframework.boot.logging.LoggingApplicationListener.onApplicationEnvironmentPreparedEvent(LoggingApplicationListener.java:239)
+	at org.springframework.boot.logging.LoggingApplicationListener.onApplicationEvent(LoggingApplicationListener.java:212)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:167)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:122)
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:73)
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:54)
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:336)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1162)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1151)
+	at com.djl.Application.main(Application.java:19)
