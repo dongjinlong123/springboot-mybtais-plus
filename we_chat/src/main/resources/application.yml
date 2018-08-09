@@ -33,7 +33,7 @@ mybatis-plus:
     map-underscore-to-camel-case: true
     cache-enabled: false
     jdbc-type-for-null: 'null'
-image_filepath: E:\tp\
+image_filepath: /opt/image/
 wx:
   token: token
   appId: wxb2575c2a7bc5f239
