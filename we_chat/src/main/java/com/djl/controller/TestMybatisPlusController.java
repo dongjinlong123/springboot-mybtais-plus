@@ -28,6 +28,7 @@ import com.djl.service.WxInfoLogService;
  */
 @RestController
 public class TestMybatisPlusController {
+	
 	@Autowired
 	private DemoService demoService;
 	
