@@ -37,7 +37,7 @@ body, div {
 	</div>
 	
 	<script type="text/javascript">
-		var recive_socket = new WebSocket("ws://localhost:80/djl/onlineServer");
+		var recive_socket = new WebSocket("ws://120.78.190.69:80/djl/onlineServer");
 		var image = document.getElementById("recive");
 		recive_socket.onmessage = function(info) {
 			image.src = info.data;
@@ -45,7 +45,7 @@ body, div {
 		function $(id) {
 			return document.getElementById(id);
 		}
-		var msg_socket = new WebSocket("ws://localhost:80/djl/chatroom");
+		var msg_socket = new WebSocket("ws://120.78.190.69:80/djl/chatroom");
 		msg_socket.onmessage = function(data) {
 			document.getElementById("dm").innerHTML += "&nbsp;" + data.data;
 		}

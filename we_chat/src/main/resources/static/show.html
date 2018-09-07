@@ -51,7 +51,7 @@ body ,div{
 		setTimeout("init()", 100);
 		function init() {
 			//这个需要浏览器支持 建立websocket的服务
-			socket = new WebSocket("ws://localhost:80/djl/onlineServer");
+			socket = new WebSocket("ws://120.78.190.69:80/djl/onlineServer");
 			socket.onopen = onOpen;
 			socket.onclose = onClose;
 		}
@@ -88,7 +88,7 @@ body ,div{
 		
 		
 		//连接socket
-		var msg_socket = new WebSocket("ws://localhost:80/djl/chatroom");
+		var msg_socket = new WebSocket("ws://120.78.190.69:80/djl/chatroom");
 		//接受信息的方法
 		msg_socket.onmessage = function(data) {
 			document.getElementById("dm").innerHTML += "&nbsp;" + data.data;
