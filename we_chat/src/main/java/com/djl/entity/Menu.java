@@ -32,6 +32,12 @@ public class Menu  implements Serializable {
 	 * 菜单名称
 	 */
 	private String menuName;
+	
+	/**
+	 * 二级菜单对应的跳转连接
+	 */
+	private String url;
+	
 	/**
 	 * 菜单父Id
 	 */
@@ -66,6 +72,12 @@ public class Menu  implements Serializable {
 	}
 	public void setMenuParentId(Long menuParentId) {
 		this.menuParentId = menuParentId;
+	}
+	public String getUrl() {
+		return url;
+	}
+	public void setUrl(String url) {
+		this.url = url;
 	}
 	
 	

@@ -126,8 +126,8 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuMapper, Menu> implement
 		SubMenuButton button = new SubMenuButton();
 		button.setName(menu.getMenuName());
 		button.setType(menu.getMenuType());
-		//对应的功能
-		button.setUrl("http://www.soso.com/");
+		//对应的跳转页面功能
+		button.setUrl(menu.getUrl());
 		return button;
 	}
 	
