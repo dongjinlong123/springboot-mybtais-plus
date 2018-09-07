@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>主播开播界面</title>
+<!-- 设置IE兼容 -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- 在移动设备浏览器上，通过为视口（viewport）设置 meta 属性为 user-scalable=no 可以禁用其缩放（zooming）功能。
+    	这样禁用缩放功能后，用户只能滚动屏幕，就能让你的网站看上去更像原生应用的感觉 -->
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- 引入css 和 js  先引入jquery 因为bootstrap是基于jquery的-->
+<script type="text/javascript" src="js/jquery-2.1.1.js"></script>
+<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<style type="text/css">
+body ,div{
+	margin: 0;
+	padding: 0;
+	background: #dff0d8;
+}
+</style>
+</head>
+<body>
+	<div>
+		<!-- 如何使用浏览器调用设备的摄像头并且能够获取到他的数据展示出来 -->
+		<video src="" id="vi" autoplay style="width: 100%; height: 100%;"></video>
+		<!-- webrtc -->
+		<canvas id="output" style="display: none"></canvas>
+	</div>
+	
+	<textarea id="dm" class="form-control" style="width: 100%; height: 300px;" readonly="readonly">
+	</textarea>
+	
+	<div class="input-group">
+		<input type="text" id="msg" class="form-control col-sm-10">
+		<span class="input-group-btn">
+			<button onclick="sendMsg()" class="btn btn-primary col-sm-2">发送消息</button>
+		</span>
+	
+	</div>
+	<script type="text/javascript">
+
+	
+		var back = document.getElementById("output");
+		var backContext = document.getElementById("output").getContext("2d");
+		var video = document.getElementById("vi");
+		var socket;
+		var interval;
+		setTimeout("init()", 100);
+		function init() {
+			//这个需要浏览器支持 建立websocket的服务
+			socket = new WebSocket("ws://localhost:80/djl/onlineServer");
+			socket.onopen = onOpen;
+			socket.onclose = onClose;
+		}
+		function onOpen() {
+			//定时传输数据到服务器
+			clearInterval(interval);
+			interval = setInterval(function() {
+				draw()
+			}, 50);
+		}
+		function onClose() {
+			init();
+		}
+		function draw() {
+
+			backContext.drawImage(video, 0, 0, back.width, back.height);
+			//将视频的图像 50%的像素发送出去
+			socket.send(back.toDataURL("image/jpeg", 0.5));
+
+		}
+		var success = function(stream) {
+			document.getElementById("vi").src = window.URL
+					.createObjectURL(stream);
+		}
+		//js bom模型
+		navigator.getUserMedia = navigator.getUserMedia
+				|| navigator.webkitGetUserMedia || navigator.mozGetUserMedia
+				|| navigator.msGetUserMedia;
+		//
+		navigator.getUserMedia({
+			video : true,
+			audio : true
+		}, success, console.log);
+		
+		
+		//连接socket
+		var msg_socket = new WebSocket("ws://localhost:80/djl/chatroom");
+		//接受信息的方法
+		msg_socket.onmessage = function(data) {
+			document.getElementById("dm").innerHTML += "&nbsp;" + data.data;
+		}
+		//发送信息的方法
+		function sendMsg() {
+			var msg = "主播说：" + document.getElementById("msg").value + "\n";
+			msg_socket.send(msg);
+		}
+	</script>
+</body>
+</html>
