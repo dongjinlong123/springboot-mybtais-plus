@@ -90,8 +90,7 @@
 			setTimeout(function(){
 				document.body.removeChild(div)
 			},3000)
-		}
-
+		} 
 
 		//发送信息
 		function sendMsg() {

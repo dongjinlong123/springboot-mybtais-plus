@@ -119,7 +119,6 @@
 			var msg = "主播说：" + document.getElementById("msg").value + "<br>";
 			msg_socket.send(msg);
 		}
-
 		//弹幕
 		function tanmu(data){
 			//判断之前有多少个弹幕
