@@ -1,0 +1,55 @@
+/*取消默认的边框占用比例及设定公共的字体*/
+*,
+*:before,
+*:after{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	margin: 0px;
+	padding: 0px;
+}
+html{
+	font-size: 16px;
+}
+body{
+	font-size: 16px;
+	font-size: 1rem;
+	font-family: "Segoe UI","Lucida Grande",Helvetica,Arial,"Microsoft YaHei",FreeSans,Arimo,"Droid Sans","wenquanyi micro hei","Hiragino Sans GB","Hiragino Sans GB W3",FontAwesome,sans-serif;
+	-webkit-font-smoothing:antialiased; /*针对苹果浏览器字体看上去更舒服*/
+}
+.djl-font-normal{
+	font-size: 16px;
+	font-size: 1rem;
+}
+.djl-font-small{
+	font-size: 12px;
+	font-size: 0.75rem;
+}
+.djl-font-big{
+	font-size: 24px;
+	font-size: 1.5rem;
+}
+body,p,div,ul,li,h1,h2,h3,h4,h5,h6{
+	margin: 0;
+	padding: 0;
+}
+li{
+	list-style-type: none;
+}
+a{
+	text-decoration: none;
+}
+/*float*/
+.djl-fl{
+	float: left;
+}
+.djl-fr{
+	float: right;
+}
+.djl-cf{
+	clear: both;
+}
+/*color*/
+.djl-color-gray{
+	color: gray;
+}
