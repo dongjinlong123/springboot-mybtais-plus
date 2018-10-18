@@ -5,7 +5,7 @@
 		var video = document.getElementById("vi");
 		var socket;
 		var interval;
-	var url = "http://120.78.190.69/djl/getShowCount.do"
+		var url = "http://120.78.190.69/djl/getShowCount.do"
 		var xhr = new XMLHttpRequest()
 		xhr.open("POST",url,true)
 		xhr.onreadystatechange = function(){
@@ -62,7 +62,7 @@
 
 			backContext.drawImage(video, 0, 0, back.width, back.height);
 			//将视频的图像 50%的像素发送出去
-			socket.send(back.toDataURL("image/jpeg", 0.5));
+			socket.send(back.toDataURL("image/jpeg", 0.3));
 		}
 		
 
