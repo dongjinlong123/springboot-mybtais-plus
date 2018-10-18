@@ -12,10 +12,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
+import org.springframework.web.bind.annotation.ResponseBody;
+@CrossOrigin(origins = "*", maxAge = 3600)
 @Controller
 public class ImageFileController {
 	@Value("${image_filepath}")
@@ -55,4 +57,11 @@ public class ImageFileController {
 			ips.close();
 		}
 	}
+	@RequestMapping(value = "/getShowCount.do", method = RequestMethod.POST)
+	@ResponseBody
+	public String getShowCount(HttpServletRequest request, HttpServletResponse response) {
+		return String.valueOf(ChatRoom.showcount.size());
+	}
+	
+	
 }

@@ -12,12 +12,9 @@ import javax.websocket.server.ServerEndpoint;
 import org.springframework.stereotype.Component;
 
 /**
- * 
-* @ClassName: OnlineServer 
-* @Description: 直播的转发服务器，基于websocket协议
-* @author 猿说教育-Jame
-* @date 2017年10月12日 下午9:04:39 
-*
+ * 发送视频
+ * @author 90411
+ *
  */
 //指定一个URI客户端可以通过这个URI来连接到我们的webSocket 类似servletmapping
 @ServerEndpoint("/onlineServer")
