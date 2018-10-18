@@ -5,7 +5,7 @@
 		var video = document.getElementById("vi");
 		var socket;
 		var interval;
-		var url = "http://localhost/djl/getShowCount.do"
+		var url = "http://120.78.190.69:80/djl/getShowCount.do"
 		var xhr = new XMLHttpRequest()
 		xhr.open("POST",url,true)
 		xhr.onreadystatechange = function(){
