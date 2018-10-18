@@ -84,7 +84,7 @@
 			if(count > 10){
 				count = count % 10
 			}
-			div.style.cssText = ("top:" + (10+count*2 +"%"))
+			div.style.cssText = "top:" + (15+count*2 +"%;") +"color:" +  colorList[colorIndex]
 			div.innerHTML=data
 			document.body.appendChild(div)
 			setTimeout(function(){

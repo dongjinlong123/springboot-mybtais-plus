@@ -5,7 +5,7 @@
 		var video = document.getElementById("vi");
 		var socket;
 		var interval;
-		var url = "http://120.78.190.69:80/djl/getShowCount.do"
+	var url = "http://120.78.190.69/djl/getShowCount.do"
 		var xhr = new XMLHttpRequest()
 		xhr.open("POST",url,true)
 		xhr.onreadystatechange = function(){
@@ -97,8 +97,11 @@
 				}else{
 					colorIndex ++
 				}
-				document.getElementById("dm").style.color = colorList[colorIndex];
-				document.getElementById("dm").innerHTML += "&nbsp;" + msg.info;
+				var dm = document.getElementById("dm")
+				dm.style.color = colorList[colorIndex];
+				dm.innerHTML += "&nbsp;" +msg.info;
+				dm.scrollTop =msg.scrollHeight -msg.clientHeight ;
+				tanmu(msg.info)
 			}
 			if(msg.name == "num1"){
 				var num =  msg.info;
@@ -115,4 +118,27 @@
 		function sendMsg() {
 			var msg = "主播说：" + document.getElementById("msg").value + "<br>";
 			msg_socket.send(msg);
+		}
+
+		//弹幕
+		function tanmu(data){
+			//判断之前有多少个弹幕
+			var tanmutxt = document.getElementsByClassName("tanmutxt")
+			var count = 0;
+			if(tanmutxt.length > 0){
+				count = tanmutxt.length
+			}
+
+			var div = document.createElement("div")
+			div.setAttribute("class","tanmutxt")
+
+			if(count > 10){
+				count = count % 10
+			}
+			div.style.cssText = "top:" + (15+count*2 +"%;") +"color:" +  colorList[colorIndex]
+			div.innerHTML=data
+			document.body.appendChild(div)
+			setTimeout(function(){
+				document.body.removeChild(div)
+			},3000)
 		}
