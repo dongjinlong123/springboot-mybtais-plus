@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,6 +18,7 @@ import com.djl.common.WxMessageUtil;
  * @author 90411
  *
  */
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 public class WxH5Controller {
 	private final static Logger logger =LoggerFactory.getLogger(WxH5Controller.class);
