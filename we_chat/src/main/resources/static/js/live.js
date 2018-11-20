@@ -37,14 +37,14 @@
 		},false)
 
 		//视频socket
-		var recive_socket = new WebSocket("ws://120.78.190.69:80/djl/onlineServer");
+		var recive_socket = new WebSocket("ws://47.107.47.129:80/djl/onlineServer");
 		
 		recive_socket.onmessage = function(info) {
 			image.src = info.data;
 		}
 
 		//文字webSocket
-		var msg_socket = new WebSocket("ws://120.78.190.69:80/djl/chatroom");
+		var msg_socket = new WebSocket("ws://47.107.47.129:80/djl/chatroom");
 		msg_socket.onopen =function(){
 			console.log("live1")
 			msg_socket.send("live1");

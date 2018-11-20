@@ -5,7 +5,7 @@
 		var video = document.getElementById("vi");
 		var socket;
 		var interval;
-		var url = "http://120.78.190.69/djl/getShowCount.do"
+		var url = "http://47.107.47.129/djl/getShowCount.do"
 		var xhr = new XMLHttpRequest()
 		xhr.open("POST",url,true)
 		xhr.onreadystatechange = function(){
@@ -39,7 +39,7 @@
 		
 		function init() {
 			//这个需要浏览器支持 建立websocket的服务
-			socket = new WebSocket("ws://120.78.190.69:80/djl/onlineServer");
+			socket = new WebSocket("ws://47.107.47.129:80/djl/onlineServer");
 			socket.onopen = onOpen;
 			socket.onclose = onClose;
 		}
@@ -72,7 +72,7 @@
 		//发送信息
 
 		//连接socket
-		var msg_socket = new WebSocket("ws://120.78.190.69:80/djl/chatroom");
+		var msg_socket = new WebSocket("ws://47.107.47.129:80/djl/chatroom");
 		msg_socket.onopen =function(){
 			console.log("show1")
 			msg_socket.send("show1");
