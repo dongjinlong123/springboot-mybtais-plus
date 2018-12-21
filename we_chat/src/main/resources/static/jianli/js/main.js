@@ -341,90 +341,96 @@ mythemeon.onblur=checkTheme;
 var myconon=document.getElementById("usercon");
 myconon.onblur=checkCon;
 
-var mybody = document.getElementsByTagName('body')[0];
+var domAll = document.getElementsByClassName('scroll_up_down');
 //滑动处理
 var startX, startY, moveEndX, moveEndY, X, Y;   
 var flag = false;
-mybody.addEventListener('touchstart', function(e) {
+for(var i in domAll){
+	if(domAll[i].nodeType == 1){
+		var mybody = domAll[i];
+		mybody.addEventListener('touchstart', function(e) {
+			
+		    e.preventDefault();
 
-    e.preventDefault();
+		    startX = e.touches[0].pageX;
 
-    startX = e.touches[0].pageX;
-
-    startY = e.touches[0].pageY;
-    
-    setTimeout(() => {
-  	  flag = false;
-	}, 1000);
-}, false);
+		    startY = e.touches[0].pageY;
+		    
+		    setTimeout(() => {
+		  	  flag = false;
+			}, 1000);
+		}, false);
 
 
-mybody.addEventListener('touchmove', function(e) {
-	
-  var con=document.getElementsByTagName("section");
-  var tag=document.getElementsByTagName("aside")[0].children;  
-  e.preventDefault();
+		mybody.addEventListener('touchmove', function(e) {
+			
+		  var con=document.getElementsByTagName("section");
+		  var tag=document.getElementsByTagName("aside")[0].children;  
+		  e.preventDefault();
 
-  moveEndX = e.changedTouches[0].pageX;
+		  moveEndX = e.changedTouches[0].pageX;
 
-  moveEndY = e.changedTouches[0].pageY;
+		  moveEndY = e.changedTouches[0].pageY;
 
-  X = moveEndX - startX;
+		  X = moveEndX - startX;
 
-  Y = moveEndY - startY;
+		  Y = moveEndY - startY;
 
-  if ( Math.abs(X) > Math.abs(Y) && X > 0 ) {console.log('向右');}
+		  if ( Math.abs(X) > Math.abs(Y) && X > 0 ) {console.log('向右');}
 
-  else if (Math.abs(X) > Math.abs(Y) && X < 0) {console.log('向左');}
+		  else if (Math.abs(X) > Math.abs(Y) && X < 0) {console.log('向左');}
 
-  else if ( Math.abs(Y) > Math.abs(X) && Y > 0) {
-	  if(flag){
-		  return;
-	  }
-	  flag = true;
-	  for (var i = 1; i < tag.length; i++) {
-          if(tag[i].className=="cur_a"){
-              tag[i].className="";
-              con[i].style.display="none";
-              tag[i-1].className="cur_a";
-              con[i-1].style.display="block";
-              break;
-          }
-		 setTimeout(() => {
-	      	  flag = false;
-			}, 500);
-      }
-  }
+		  else if ( Math.abs(Y) > Math.abs(X) && Y > 0) {
+			  if(flag){
+				  return;
+			  }
+			  flag = true;
+			  for (var i = 1; i < tag.length; i++) {
+		          if(tag[i].className=="cur_a"){
+		              tag[i].className="";
+		              con[i].style.display="none";
+		              tag[i-1].className="cur_a";
+		              con[i-1].style.display="block";
+		              break;
+		          }
+				 setTimeout(() => {
+			      	  flag = false;
+					}, 500);
+		      }
+		  }
 
-  else if (Math.abs(Y) > Math.abs(X) && Y < 0 ) { 
-	  console.log('向上');
-	  if(flag){
-		  return;
-	  }
-	  flag = true;
-	  for (var i = 0; i < tag.length-1; i++) {
-	      var n=0;
-	      if(tag[i].className=="cur_a" ){
-	          tag[i].className="";
-	          con[i].style.display="none";  
-	          n=i+1;
-	          if(n>=tag.length){
-	        	  n = tag.length-1
-	          }
-	          tag[n].className="cur_a";
-	          con[n].style.display="block";
-	          setTimeout(() => {
-	        	  flag = false;
-			}, 500);
-	          break;
-	      }
-	  }
-  
-  }
+		  else if (Math.abs(Y) > Math.abs(X) && Y < 0 ) { 
+			  console.log('向上');
+			  if(flag){
+				  return;
+			  }
+			  flag = true;
+			  for (var i = 0; i < tag.length-1; i++) {
+			      var n=0;
+			      if(tag[i].className=="cur_a" ){
+			          tag[i].className="";
+			          con[i].style.display="none";  
+			          n=i+1;
+			          if(n>=tag.length){
+			        	  n = tag.length-1
+			          }
+			          tag[n].className="cur_a";
+			          con[n].style.display="block";
+			          setTimeout(() => {
+			        	  flag = false;
+					}, 500);
+			          break;
+			      }
+			  }
+		  
+		  }
 
-  else{console.log('没滑动');}
+		  else{console.log('没滑动');}
 
-});
+		});
+	}
+}
+
 
 var scrollFunc = function (e) {
     var con=document.getElementsByTagName("section");
