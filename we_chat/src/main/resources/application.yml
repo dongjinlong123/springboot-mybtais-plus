@@ -2,3 +2,13 @@ spring:
   profiles:
     active:
     - pro
+email:
+  server:
+    protocol: smtps
+    host: smtp.qq.com
+    port: 465
+    username: 904118787@qq.com
+    password: lgtqalcktfdcbcie
+    
+
+

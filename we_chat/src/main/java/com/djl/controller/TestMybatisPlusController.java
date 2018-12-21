@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
@@ -17,6 +16,7 @@ import com.baomidou.mybatisplus.plugins.Page;
 import com.djl.entity.Demo;
 import com.djl.entity.WxInfoLog;
 import com.djl.service.DemoService;
+import com.djl.service.MailService;
 import com.djl.service.WxInfoLogService;
 
 /**
@@ -32,7 +32,8 @@ public class TestMybatisPlusController {
 	
 	@Autowired
 	private DemoService demoService;
-	
+	@Autowired
+	private MailService mailService;
 	@Autowired
 	private WxInfoLogService wxInfoLogService;
 
@@ -90,10 +91,15 @@ public class TestMybatisPlusController {
 
 	@RequestMapping("/inserDemo")
 	public String insertTest(Demo demo) {
-		System.out.println(demo.getName());
-		if (demoService.insert(demo))
+		
+		if (demoService.insert(demo)) {
+			//发送邮件
+			mailService.sendMail(demo);
 			return "00";
-		else
+		}
+		else {
 			return "01";
+		}
+			
 	}
 }

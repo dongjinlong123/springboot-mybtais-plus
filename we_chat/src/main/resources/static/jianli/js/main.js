@@ -72,14 +72,14 @@ var waited_develop=function(){
         if(waitedli[i].addEventListener){
             waitedli[i].addEventListener("click",myfunction,false);
                 function myfunction(){
-            alert("待开发");
+            console.log("待开发");
         }
 
         }
         if(waitedli[i].attachEvent){
             waitedli[i].attachEvent("onclick",myfunction); 
             function myfunction(){
-                alert("待开发");
+                console.log("待开发");
             }
         }
     }
@@ -344,11 +344,27 @@ myconon.onblur=checkCon;
 var mybody = document.getElementsByTagName('body')[0];
 //滑动处理
 var startX, startY, moveEndX, moveEndY, X, Y;   
+var flag = false;
+mybody.addEventListener('touchstart', function(e) {
+
+    e.preventDefault();
+
+    startX = e.touches[0].pageX;
+
+    startY = e.touches[0].pageY;
+    
+    setTimeout(() => {
+  	  flag = false;
+	}, 1000);
+}, false);
+
 
 mybody.addEventListener('touchmove', function(e) {
-
+	
   var con=document.getElementsByTagName("section");
   var tag=document.getElementsByTagName("aside")[0].children;  
+  e.preventDefault();
+
   moveEndX = e.changedTouches[0].pageX;
 
   moveEndY = e.changedTouches[0].pageY;
@@ -357,35 +373,49 @@ mybody.addEventListener('touchmove', function(e) {
 
   Y = moveEndY - startY;
 
-  if ( X > 0 ) {console.log('向右');}
+  if ( Math.abs(X) > Math.abs(Y) && X > 0 ) {console.log('向右');}
 
-  else if ( X < 0 ) {console.log('向左');}
+  else if (Math.abs(X) > Math.abs(Y) && X < 0) {console.log('向左');}
 
-  else if ( Y > 0) {
-	  console.log('向下');
+  else if ( Math.abs(Y) > Math.abs(X) && Y > 0) {
+	  if(flag){
+		  return;
+	  }
+	  flag = true;
+	  for (var i = 1; i < tag.length; i++) {
+          if(tag[i].className=="cur_a"){
+              tag[i].className="";
+              con[i].style.display="none";
+              tag[i-1].className="cur_a";
+              con[i-1].style.display="block";
+              break;
+          }
+		 setTimeout(() => {
+	      	  flag = false;
+			}, 500);
+      }
+  }
+
+  else if (Math.abs(Y) > Math.abs(X) && Y < 0 ) { 
+	  console.log('向上');
+	  if(flag){
+		  return;
+	  }
+	  flag = true;
 	  for (var i = 0; i < tag.length-1; i++) {
 	      var n=0;
-	      if(tag[i].className=="cur_a"){
+	      if(tag[i].className=="cur_a" ){
 	          tag[i].className="";
 	          con[i].style.display="none";  
 	          n=i+1;
+	          if(n>=tag.length){
+	        	  n = tag.length-1
+	          }
 	          tag[n].className="cur_a";
 	          con[n].style.display="block";
-	          break;
-	      }
-	  }
-  }
-
-  else if ( Y < 0 ) { 
-	  console('向上');
-	  for (var i = 0; i < tag.length-1; i++) {
-	      var n=0;
-	      if(tag[i].className=="cur_a" && i !=0){
-	          tag[i].className="";
-	          con[i].style.display="none";  
-	          n=i-1;
-	          tag[n].className="cur_a";
-	          con[n].style.display="block";
+	          setTimeout(() => {
+	        	  flag = false;
+			}, 500);
 	          break;
 	      }
 	  }
