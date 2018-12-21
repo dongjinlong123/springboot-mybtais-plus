@@ -1139,7 +1139,7 @@ ul.con_style li:nth-child(3) span {
     }
 
     .tit_wrap .scissors {
-        top: 101px
+        top: 14%;
     }
 
     .text_wrap p {
@@ -1244,6 +1244,34 @@ ul.con_style li:nth-child(3) span {
     .page_five .contact_info form label p{
         padding: 0 0;
     }
+    .tit_wrap h1 {
+	    width: 100%;
+	    margin: 1px auto 50px;
+	    position: relative;
+	    line-height: 4.2rem;
+	}
+	.tit_wrap .scissors {
+	   	top: 10.3%;
+    	right: -2%;
+	}
+	.con_wrap{
+		padding: 0px;
+	}
+	
+	.tit_wrap h1{
+	    padding: 0;
+    	margin: 2% 0px;
+    }
+    .tit_wrap h2{
+    	display: none;
+    }
+    .tit_wrap + div {
+	    margin: 26px 0 0 0;
+	}
+	.page_three .text_wrap p:last-child{
+		display: none;
+	}
+	
 
 }
 .alterInner{
