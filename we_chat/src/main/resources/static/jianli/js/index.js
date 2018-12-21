@@ -39,3 +39,5 @@ function submitForm(){
 function getMapBD(){
 	window.location.href="map.html"
 }
+
+

@@ -341,7 +341,60 @@ mythemeon.onblur=checkTheme;
 var myconon=document.getElementById("usercon");
 myconon.onblur=checkCon;
 
+var mybody = document.getElementsByTagName('body')[0];
+//滑动处理
+var startX, startY, moveEndX, moveEndY, X, Y;   
 
+mybody.addEventListener('touchmove', function(e) {
+
+  var con=document.getElementsByTagName("section");
+  var tag=document.getElementsByTagName("aside")[0].children;  
+  moveEndX = e.changedTouches[0].pageX;
+
+  moveEndY = e.changedTouches[0].pageY;
+
+  X = moveEndX - startX;
+
+  Y = moveEndY - startY;
+
+  if ( X > 0 ) {console.log('向右');}
+
+  else if ( X < 0 ) {console.log('向左');}
+
+  else if ( Y > 0) {
+	  console.log('向下');
+	  for (var i = 0; i < tag.length-1; i++) {
+	      var n=0;
+	      if(tag[i].className=="cur_a"){
+	          tag[i].className="";
+	          con[i].style.display="none";  
+	          n=i+1;
+	          tag[n].className="cur_a";
+	          con[n].style.display="block";
+	          break;
+	      }
+	  }
+  }
+
+  else if ( Y < 0 ) { 
+	  console('向上');
+	  for (var i = 0; i < tag.length-1; i++) {
+	      var n=0;
+	      if(tag[i].className=="cur_a" && i !=0){
+	          tag[i].className="";
+	          con[i].style.display="none";  
+	          n=i-1;
+	          tag[n].className="cur_a";
+	          con[n].style.display="block";
+	          break;
+	      }
+	  }
+  
+  }
+
+  else{console.log('没滑动');}
+
+});
 
 var scrollFunc = function (e) {
     var con=document.getElementsByTagName("section");
