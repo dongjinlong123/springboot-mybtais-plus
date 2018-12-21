@@ -1,0 +1,10 @@
+@import url('./live.css');
+header .showTitle{
+	border: 1px solid #1d303f;
+	color: #ffffff;
+	margin-top: 10%;
+}
+
+header #show_num{
+	color: green;
+}

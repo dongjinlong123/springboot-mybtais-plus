@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>位置</title>
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />  
+	<meta charset="utf-8">
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=wc2IeVKV2iNi2fnBBPNnlhUs9MwKCd1S"></script>
+
+	<style type="text/css">
+		
+		html{height:100%}    
+   		body{height:100%;margin:0px;padding:0px}    
+   		 #container{height:100%}    
+	</style>
+	
+</head>
+<body>
+<div id="container"></div>
+<script type="text/javascript">
+var map = new BMap.Map("container");
+var point = new BMap.Point(116.331398,39.897445);
+map.centerAndZoom(point,12);
+map.enableScrollWheelZoom(true);
+var local = new BMap.LocalSearch(map, {      
+    renderOptions:{map: map}      
+});      
+local.search("深圳南山嘉联支付大厦");
+</script>
+</body>
+</html>

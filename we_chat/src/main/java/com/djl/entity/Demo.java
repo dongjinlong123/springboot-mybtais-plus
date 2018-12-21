@@ -35,6 +35,9 @@ public class Demo extends PageVO implements Serializable {
 	 */
 	private Date time;
 	
+	private String qq;
+	private String topic;
+	
 	public Date getTime() {
 		return time;
 	}
@@ -60,9 +63,18 @@ public class Demo extends PageVO implements Serializable {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	@Override
-	public String toString() {
-		return "Demo [id=" + id + ", name=" + name + ", value=" + value + "]";
+	
+	public String getQq() {
+		return qq;
+	}
+	public void setQq(String qq) {
+		this.qq = qq;
+	}
+	public String getTopic() {
+		return topic;
+	}
+	public void setTopic(String topic) {
+		this.topic = topic;
 	}
 	
 }

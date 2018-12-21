@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
@@ -87,11 +88,12 @@ public class TestMybatisPlusController {
 		return resultMap;
 	}
 
-	@RequestMapping("/inserTest")
+	@RequestMapping("/inserDemo")
 	public String insertTest(Demo demo) {
+		System.out.println(demo.getName());
 		if (demoService.insert(demo))
-			return "insert success";
+			return "00";
 		else
-			return "insert fail";
+			return "01";
 	}
 }
