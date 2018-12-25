@@ -342,6 +342,7 @@ var myconon=document.getElementById("usercon");
 myconon.onblur=checkCon;
 
 var domAll = document.getElementsByClassName('scroll_up_down');
+
 //滑动处理
 var startX, startY, moveEndX, moveEndY, X, Y;   
 var flag = false;
