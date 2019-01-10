@@ -1,0 +1,126 @@
+body{
+  overflow-x: hidden;
+}
+
+header ,nav{
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+nav .skill {
+  background-color: #fff;
+}
+nav .skill .skillbar{
+     position: relative;
+    left: 7.2rem;
+    height: 0.8rem;
+    width: 64%;
+    top: -0.5rem;
+}
+nav .skill .text{
+  position: relative;
+    top: 0.5rem;
+    left: 0.6rem;
+    font-size: 1rem;
+    color: #E33B15;
+}
+
+
+nav .skill .percent_right{
+    float: right;
+    position: relative;
+    color: red;
+    right: 54%; /*16rem -- 0.4 rem*/ 
+   top: -3.9rem;
+   text-align: left;
+}
+nav .skill .left_txt{
+  margin-top: 0.2rem;
+  margin-left: 5rem;
+}
+nav .skill .right_txt{
+   margin-top: 0.2rem;
+    margin-right: 9%;
+}
+
+nav .skill .no_num{
+    
+    font-size: 0.8rem;
+    position: absolute;
+    right: 1rem;
+}
+nav .skill .jindu,nav .skill .no_num{
+  color: #99999C;
+}
+nav .skill .colorbar1{
+  background-color:#FFB500;
+}
+.mescroll{
+  overflow-x: hidden;
+}
+.content{
+  height: 20rem;
+}
+.content ul{
+      list-style-type: none;
+}
+.content ul li{
+  margin-top: 1.5rem;
+  width: 30%;
+  box-sizing: border-box;
+  display: inline-grid;
+  float: left;
+  margin-left: 3.33333333%;
+}
+.content ul li img{
+  width: 80%
+}
+.content ul li .txt{
+  white-space: nowrap;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}
+.content ul li .icon_text{
+    font-size: 1rem;
+    margin-top: 2rem;
+}
+.content ul li .old_point_text,.content ul li .point_text {
+  color: #999;
+  font-size: 0.8rem;
+   margin-top: 0.2rem;
+}
+
+.content ul li .color_t{
+  color:red;
+}
+
+.no_num label {
+    background-color: #333333;
+    margin-right: 0.2rem;
+}
+.protext_img{
+  max-width: 40%
+}
+.scollimg{
+   padding-left: 0rem;
+}
+.activity_text ,.activity_text_info{
+    position: relative;
+    left: 0.6rem;
+    letter-spacing: 0.1rem;
+    margin-bottom:1%;
+}
+.activity_text
+{
+   font-size: 1rem;
+   color:#E33B15;
+   margin-bottom: 1.1%;
+}
+.activity_text_info{
+  font-size: 0.7rem;
+  text-align: justify;
+  padding-right: 1.2rem;
+}
+.activity_text_info label{
+   color:#E33B15;
+}
