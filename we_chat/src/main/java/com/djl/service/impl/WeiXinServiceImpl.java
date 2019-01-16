@@ -271,6 +271,9 @@ public class WeiXinServiceImpl implements WeiXinService {
 		if("".equals(remsg)){
 			remsg = "你说什么，我听不懂@__@";
 		}
+		if(remsg.length() >= 1000 ) {
+			remsg.substring(0, 1000);
+		}
 		message.setContent(remsg);
 		message.setMsgType(WxMessageUtil.TEXT);
 		this.resMsg = remsg;//记录的信息
