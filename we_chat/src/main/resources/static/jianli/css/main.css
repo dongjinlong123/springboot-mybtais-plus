@@ -1207,7 +1207,7 @@ ul.con_style li:nth-child(3) span {
         margin-top: -2%;
     }
     .page_three .text_wrap p{
-        font-size: 1.4rem;
+        font-size: 1.24rem;
     }
     .page_three .con_wrap .text_wrap{
         margin-left: -11%;
@@ -1223,13 +1223,18 @@ ul.con_style li:nth-child(3) span {
      .page_four .work_text:after{
         border: none;
     }
+
      .page_four .exCon{
+
        padding: 10px 10px;
        margin: 0;
-       font-size: 1rem;
+       font-size: 1.5rem;
      }
      .page_four .exCon p{
+         font-family: monospace;
        font-weight: 900;
+       font-size: 1.3rem;
+    	line-height: 1.6rem;
      }
     .page_four .con_wrap{
         margin: 0;
@@ -1316,4 +1321,9 @@ ul.con_style li:nth-child(3) span {
     50% {color: #f614d8 ;}
     75% {color: #54ff00 ;}
     100% {color: pink;}
+}
+.pingjia{
+	white-space: normal;
+    line-height: 3rem;
+    text-indent: 3rem;
 }
